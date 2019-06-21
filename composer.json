@@ -1,0 +1,20 @@
+{
+    "name": "panix/wgt-multiple-input",
+    "description": "Widget multipleinput",
+    "keywords": ["pixelion-cms", "extension", "widget", "multipleinput"],
+    "homepage": "https://github.com/andrtechno/wgt-multiple-input",
+    "type": "yii2-extension",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "PIXELION CMS",
+            "email": "dev@pixelion.com.ua",
+            "homepage": "https://pixelion.com.ua"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "panix\\ext\\multipleinput\\": ""
+        }
+    }
+}
