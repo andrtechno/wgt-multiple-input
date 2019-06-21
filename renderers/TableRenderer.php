@@ -39,7 +39,7 @@ class TableRenderer extends BaseRenderer
 
         return Html::tag('div', $content, [
             'id' => $this->id,
-            'class' => 'multiple-input table-responsive'
+            'class' => 'multiple-input table-responsive-sm'
         ]);
     }
 
