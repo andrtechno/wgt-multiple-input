@@ -39,7 +39,7 @@ class TableRenderer extends BaseRenderer
 
         return Html::tag('div', $content, [
             'id' => $this->id,
-            'class' => 'multiple-input'
+            'class' => 'multiple-input table-responsive'
         ]);
     }
 
@@ -303,7 +303,7 @@ class TableRenderer extends BaseRenderer
 
         $wrapperOptions = ['class' => 'field-' . $id];
         if ($this->isBootstrapTheme()) {
-            Html::addCssClass($wrapperOptions, 'form-group');
+            Html::addCssClass($wrapperOptions, 'form-group text-center');
         }
 
         if ($hasError) {

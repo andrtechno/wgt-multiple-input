@@ -6,7 +6,7 @@ use Yii;
 use yii\base\InvalidConfigException;
 use yii\base\Model;
 use yii\db\ActiveRecordInterface;
-use yii\bootstrap\Widget;
+use yii\bootstrap4\Widget;
 use yii\widgets\ActiveForm;
 use panix\ext\multipleinput\renderers\TableRenderer;
 use panix\ext\multipleinput\renderers\RendererInterface;

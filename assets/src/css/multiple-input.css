@@ -23,14 +23,6 @@ table.multiple-input-list.table-renderer tbody tr > td {
     border: 0 !important;
 }
 
-table.multiple-input-list.table-renderer tr > td:first-child {
-    padding-left: 0;
-}
-
-table.multiple-input-list.table-renderer tr > td:last-child {
-    padding-right: 0;
-}
-
 table.multiple-input-list tr > th {
     border-bottom: 1px solid #dddddd;
 }
