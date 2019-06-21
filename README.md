@@ -2,8 +2,12 @@ wgt-multi-input Widget
 ============================
 
 
-[![Latest Stable Version](https://poser.pugx.org/anix/wgt-multi-input/v/stable.svg)](https://packagist.org/packages/anix/wgt-multi-input)
-[![Total Downloads](https://poser.pugx.org/anix/wgt-multi-input/downloads.svg)](https://packagist.org/packages/anix/wgt-multi-input)
+[![Latest Stable Version](https://poser.pugx.org/panix/wgt-multiple-input/v/stable)](https://packagist.org/packages/panix/wgt-multiple-input)
+[![Total Downloads](https://poser.pugx.org/panix/wgt-multiple-input/downloads)](https://packagist.org/packages/panix/wgt-multiple-input)
+[![Monthly Downloads](https://poser.pugx.org/panix/wgt-multiple-input/d/monthly)](https://packagist.org/packages/panix/wgt-multiple-input)
+[![Daily Downloads](https://poser.pugx.org/panix/wgt-multiple-input/d/daily)](https://packagist.org/packages/panix/wgt-multiple-input)
+[![Latest Unstable Version](https://poser.pugx.org/panix/wgt-multiple-input/v/unstable)](https://packagist.org/packages/panix/wgt-multiple-input)
+[![License](https://poser.pugx.org/panix/wgt-multiple-input/license)](https://packagist.org/packages/panix/wgt-multiple-input)
 
 
 Installation
