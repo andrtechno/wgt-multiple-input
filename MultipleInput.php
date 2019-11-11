@@ -175,13 +175,13 @@ class MultipleInput extends InputWidget
     public $iconMap = [
         self::ICONS_SOURCE_GLYPHICONS => [
             'drag-handle'   => 'glyphicon glyphicon-menu-hamburger icon-sort',
-            'remove'        => 'glyphicon glyphicon-remove icon-delete',
+            'delete'        => 'glyphicon glyphicon-remove icon-delete',
             'add'           => 'glyphicon glyphicon-plus icon-add',
             'clone'         => 'glyphicon glyphicon-duplicate icon-user',
         ],
         self::ICONS_SOURCE_FONTAWESOME => [
             'drag-handle'   => 'fa fa-bars icon-sort',
-            'remove'        => 'fa fa-times icon-delete',
+            'delete'        => 'fa fa-times icon-delete',
             'add'           => 'fa fa-plus icon-add',
             'clone'         => 'fa fa-files-o icon-user',
         ],

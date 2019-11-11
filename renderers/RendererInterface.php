@@ -14,7 +14,7 @@ interface RendererInterface
     const POS_ROW_BEGIN = 'row_begin';
     const POS_FOOTER    = 'footer';
 
-    const THEME_DEFAULT = 'default';
+    const THEME_DEFAULT = 'secondary';
     const THEME_BS      = 'bootstrap';
 
     /**

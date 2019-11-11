@@ -12,6 +12,7 @@ use yii\db\ActiveRecordInterface;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
 use yii\helpers\Inflector;
+use yii\helpers\Json;
 use yii\web\JsExpression;
 use panix\ext\multipleinput\renderers\BaseRenderer;
 
@@ -239,6 +240,7 @@ abstract class BaseColumn extends BaseObject
     protected function prepareValue($contextParams = [])
     {
         $data = $this->getModel();
+
         if ($this->value instanceof \Closure) {
             $value = call_user_func($this->value, $data, $contextParams);
         } else {
@@ -253,6 +255,7 @@ abstract class BaseColumn extends BaseObject
             } elseif ($data instanceof Model) {
                 $value = $data->{$this->name};
             } elseif (is_array($data)) {
+                //$value = ArrayHelper::getValue($data, $this->name, null);
                 $value = ArrayHelper::getValue($data, $this->name, null);
             } elseif(is_string($data) || is_numeric($data)) {
                 $value = $data;
@@ -334,6 +337,7 @@ abstract class BaseColumn extends BaseObject
         $value = null;
         if ($this->type !== self::TYPE_DRAGCOLUMN) {
             $value = $this->prepareValue($contextParams);
+
         }
 
         if (isset($options['items'])) {

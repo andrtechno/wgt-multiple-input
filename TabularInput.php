@@ -22,11 +22,12 @@ class TabularInput extends Widget
     const POS_FOOTER    = RendererInterface::POS_FOOTER;
     const POS_ROW_BEGIN = RendererInterface::POS_ROW_BEGIN;
 
-    const THEME_DEFAULT = 'default';
+    const THEME_DEFAULT = 'secondary';
     const THEME_BS      = 'bootstrap';
 
     const ICONS_SOURCE_GLYPHICONS  = 'glyphicons';
     const ICONS_SOURCE_FONTAWESOME = 'fa';
+    const ICONS_SOURCE_CORE = 'icon';
 
     /**
      * @var array
@@ -179,6 +180,12 @@ class TabularInput extends Widget
             'add'           => 'fa fa-plus',
             'clone'         => 'fa fa-files-o',
         ],
+        self::ICONS_SOURCE_CORE => [
+            'drag-handle'   => 'icon fa-bars',
+            'remove'        => 'icon fa-times',
+            'add'           => 'icon icon-add',
+            'clone'         => 'icon fa-files-o',
+        ],
     ];
 
     /**
@@ -191,7 +198,7 @@ class TabularInput extends Widget
     /**
      * @var string the name of default icon library
      */
-    public $iconSource = self::ICONS_SOURCE_GLYPHICONS;
+    public $iconSource = self::ICONS_SOURCE_CORE;
 
     /**
      * @var bool add a new line to the beginning of the list, not to the end

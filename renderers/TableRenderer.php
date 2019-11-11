@@ -32,7 +32,7 @@ class TableRenderer extends BaseRenderer
         Html::addCssClass($options, 'multiple-input-list');
 
         if ($this->isBootstrapTheme()) {
-            Html::addCssClass($options, 'table table-striped table-renderer');
+            Html::addCssClass($options, 'table table-renderer');
         }
 
         $content = Html::tag('table', implode("\n", $content), $options);
@@ -192,7 +192,7 @@ class TableRenderer extends BaseRenderer
      * @return mixed
      * @throws InvalidConfigException
      */
-    private function renderRowContent($index = null, $item = null)
+    protected function renderRowContent($index = null, $item = null)
     {
         $cells = [];
         $hiddenInputs = [];
@@ -252,7 +252,7 @@ class TableRenderer extends BaseRenderer
 
         return $options;
     }
-
+    public $wrapperOptions=[];
     /**
      * Renders the cell content.
      *
@@ -303,7 +303,7 @@ class TableRenderer extends BaseRenderer
 
         $wrapperOptions = ['class' => 'field-' . $id];
         if ($this->isBootstrapTheme()) {
-            Html::addCssClass($wrapperOptions, 'form-group text-center');
+            Html::addCssClass($wrapperOptions, 'text-center'); //form-group
         }
 
         if ($hasError) {
@@ -332,7 +332,7 @@ class TableRenderer extends BaseRenderer
      * @param bool $isFirstColumn
      * @return string
      */
-    private function renderActionColumn($index = null, $item = null, $isFirstColumn = false)
+    protected function renderActionColumn($index = null, $item = null, $isFirstColumn = false)
     {
         $content = $this->getActionButton($index, $isFirstColumn) . $this->getExtraButtons($index, $item);
 
@@ -346,7 +346,7 @@ class TableRenderer extends BaseRenderer
      *
      * @return string
      */
-    private function renderCloneColumn()
+    protected function renderCloneColumn()
     {
         return Html::tag('td', $this->renderCloneButton(), [
             'class' => 'list-cell__button text-center',
