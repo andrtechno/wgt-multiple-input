@@ -87,7 +87,7 @@ class TableLanguageRenderer extends TableRenderer
 
         $wrapperOptions = ['class' => 'field-' . $id];
         if ($this->isBootstrapTheme()) {
-            Html::addCssClass($wrapperOptions, 'text-center'); //form-group
+            Html::addCssClass($wrapperOptions, 'text-center');
         }
 
         if ($hasError) {
