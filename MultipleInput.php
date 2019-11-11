@@ -30,6 +30,7 @@ class MultipleInput extends InputWidget
 
     const ICONS_SOURCE_GLYPHICONS  = 'glyphicons';
     const ICONS_SOURCE_FONTAWESOME = 'fa';
+    const ICONS_SOURCE_CORE = 'icon';
 
     /**
      * @var ActiveRecordInterface[]|array[] input data
@@ -185,11 +186,17 @@ class MultipleInput extends InputWidget
             'add'           => 'fa fa-plus icon-add',
             'clone'         => 'fa fa-files-o icon-user',
         ],
+        self::ICONS_SOURCE_CORE => [
+            'drag-handle'   => 'icon-sort',
+            'delete'        => 'icon-delete',
+            'add'           => 'icon-add',
+            'clone'         => 'icon-user',
+        ],
     ];
     /**
      * @var string the name of default icon library
      */
-    public $iconSource = self::ICONS_SOURCE_GLYPHICONS;
+    public $iconSource = self::ICONS_SOURCE_CORE;
 
     /**
      * @var string the CSS theme of the widget
