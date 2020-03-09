@@ -24,18 +24,25 @@ class TableLanguageRenderer extends TableRenderer
     protected function renderBody()
     {
         $rows = [];
-
+        $languages = Yii::$app->languageManager->languages;
         if ($this->data) {
+
             foreach ($this->data as $index => $item) {
                 $rows[] = $this->renderRowContent($index, $item);
             }
-            foreach (Yii::$app->languageManager->languages as $index => $item) {
+            foreach ($languages as $index => $item) {
                 if (!isset($this->data[$index])) {
                     $rows[] = $this->renderRowContent($index, $item);
                 }
             }
-        }
+        } elseif ($this->min > 0) {
+            foreach ($languages as $index => $item) {
+                if (!isset($this->data[$index])) {
+                    $rows[] = $this->renderRowContent($index);
+                }
+            }
 
+        }
         return Html::tag('tbody', implode("\n", $rows));
     }
 
