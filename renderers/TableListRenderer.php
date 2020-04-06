@@ -9,10 +9,10 @@ use yii\helpers\Html;
 use panix\ext\multipleinput\components\BaseColumn;
 
 /**
- * Class ListRenderer
+ * Class TableListRenderer
  * @package panix\ext\multipleinput\renderers
  */
-class ListRenderer extends BaseRenderer
+class TableListRenderer extends BaseRenderer
 {
     /**
      * @return mixed
@@ -26,10 +26,10 @@ class ListRenderer extends BaseRenderer
         $content[] = $this->renderFooter();
 
         $options = [];
-        Html::addCssClass($options, 'multiple-input-list list-renderer');
+        Html::addCssClass($options, 'multiple-input-list');
 
         if ($this->isBootstrapTheme()) {
-            Html::addCssClass($options, 'table form-horizontal');
+            Html::addCssClass($options, 'table');
         }
 
         $content = Html::tag('table', implode("\n", $content), $options);
@@ -186,8 +186,8 @@ class ListRenderer extends BaseRenderer
      */
     public function renderCellContent($column, $index, $columnIndex = null)
     {
-        $id    = $column->getElementId($index);
-        $name  = $column->getElementName($index);
+        $id = $column->getElementId($index);
+        $name = $column->getElementName($index);
 
         /**
          * This class inherits iconMap from BaseRenderer
@@ -213,10 +213,10 @@ class ListRenderer extends BaseRenderer
         }
 
         $layoutConfig = array_merge([
-            'offsetClass'   => $this->isBootstrapTheme() ? 'col-sm-offset-3' : '',
-            'labelClass'    => $this->isBootstrapTheme() ? 'col-sm-3' : '',
-            'wrapperClass'  => $this->isBootstrapTheme() ? 'col-sm-6' : '',
-            'errorClass'    => $this->isBootstrapTheme() ? 'col-sm-offset-3 col-sm-6' : '',
+            'offsetClass' => $this->isBootstrapTheme() ? 'col-sm-offset-3' : '',
+            'labelClass' => $this->isBootstrapTheme() ? 'col-sm-4 col-lg-2' : '',
+            'wrapperClass' => $this->isBootstrapTheme() ? 'col-sm-8 col-lg-10' : '',
+            'errorClass' => $this->isBootstrapTheme() ? 'col-sm-offset-3 col-sm-6' : '',
         ], $this->layoutConfig);
 
         Html::addCssClass($column->errorOptions, $layoutConfig['errorClass']);
