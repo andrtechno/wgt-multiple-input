@@ -178,19 +178,19 @@ class MultipleInput extends InputWidget
             'drag-handle'   => 'glyphicon glyphicon-menu-hamburger icon-sort',
             'delete'        => 'glyphicon glyphicon-remove icon-delete',
             'add'           => 'glyphicon glyphicon-plus icon-add',
-            'clone'         => 'glyphicon glyphicon-duplicate icon-user',
+            'clone'         => 'glyphicon glyphicon-duplicate icon-copy',
         ],
         self::ICONS_SOURCE_FONTAWESOME => [
             'drag-handle'   => 'fa fa-bars icon-sort',
             'delete'        => 'fa fa-times icon-delete',
             'add'           => 'fa fa-plus icon-add',
-            'clone'         => 'fa fa-files-o icon-user',
+            'clone'         => 'fa fa-files-o icon-copy',
         ],
         self::ICONS_SOURCE_CORE => [
             'drag-handle'   => 'icon-sort',
             'delete'        => 'icon-delete',
             'add'           => 'icon-add',
-            'clone'         => 'icon-user',
+            'clone'         => 'icon-copy',
         ],
     ];
     /**
