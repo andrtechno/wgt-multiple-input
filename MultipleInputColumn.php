@@ -64,7 +64,11 @@ class MultipleInputColumn extends BaseColumn
      */
     private function isRendererHasOneColumn()
     {
-        return count($this->renderer->columns) === 1; 
+        $columns = \array_filter($this->renderer->columns, function(self $column) {
+            return $column->type !== self::TYPE_DRAGCOLUMN;
+        });
+
+        return count($columns) === 1;
     }
 
     /**

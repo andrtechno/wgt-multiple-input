@@ -178,7 +178,7 @@ class DivRenderer extends BaseRenderer
          * via the $options array
          */
         $options = ['id' => $id];
-        if (substr($id, -4) === 'drag') {
+        if ($column->type === BaseColumn::TYPE_DRAGCOLUMN) {
             $options = ArrayHelper::merge($options, ['class' => $this->iconMap['drag-handle']]);
         }
         $input = $column->renderInput($name, $options, [

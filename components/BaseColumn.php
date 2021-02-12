@@ -23,18 +23,17 @@ use panix\ext\multipleinput\renderers\BaseRenderer;
  */
 abstract class BaseColumn extends BaseObject
 {
-    const TYPE_TEXT_INPUT       = 'textInput';
-    const TYPE_HIDDEN_INPUT     = 'hiddenInput';
-    const TYPE_DROPDOWN         = 'dropDownList';
-    const TYPE_LISTBOX          = 'listBox';
-    const TYPE_CHECKBOX_LIST    = 'checkboxList';
-    const TYPE_RADIO_LIST       = 'radioList';
-    const TYPE_STATIC           = 'static';
-    const TYPE_CHECKBOX         = 'checkbox';
-    const TYPE_RADIO            = 'radio';
-    const TYPE_DRAGCOLUMN       = 'dragColumn';
+    const TYPE_TEXT_INPUT = 'textInput';
+    const TYPE_HIDDEN_INPUT = 'hiddenInput';
+    const TYPE_DROPDOWN = 'dropDownList';
+    const TYPE_LISTBOX = 'listBox';
+    const TYPE_CHECKBOX_LIST = 'checkboxList';
+    const TYPE_RADIO_LIST = 'radioList';
+    const TYPE_STATIC = 'static';
+    const TYPE_CHECKBOX = 'checkbox';
+    const TYPE_RADIO = 'radio';
+    const TYPE_DRAGCOLUMN = 'dragColumn';
 
-    const TABINDEX = 1;
 
     const DEFAULT_STATIC_COLUMN_NAME = 'static-column';
 
@@ -276,7 +275,8 @@ abstract class BaseColumn extends BaseObject
      * @param $name
      * @return mixed
      */
-    private function normalize($name) {
+    private function normalize($name)
+    {
         return str_replace(['[]', '][', '[', ']', ' ', '.'], ['', '-', '-', '', '-', '-'], strtolower($name));
     }
 
@@ -362,10 +362,6 @@ abstract class BaseColumn extends BaseObject
             Html::addCssClass($options, 'form-control');
         }
 
-        if (!isset($options['tabindex'])) {
-            $options['tabindex'] = self::TABINDEX;
-        }
-
         return Html::dropDownList($name, $value, $this->prepareItems($this->items), $options);
     }
 
@@ -387,9 +383,9 @@ abstract class BaseColumn extends BaseObject
     /**
      * Renders list box.
      *
-     * @param string    $name the name of input
-     * @param mixed     $value the value of input
-     * @param array     $options the HTMl options of input
+     * @param string $name the name of input
+     * @param mixed $value the value of input
+     * @param array $options the HTMl options of input
      * @return string
      */
     protected function renderListBox($name, $value, $options)
@@ -398,19 +394,15 @@ abstract class BaseColumn extends BaseObject
             Html::addCssClass($options, 'form-control');
         }
 
-        if (!isset($options['tabindex'])) {
-            $options['tabindex'] = self::TABINDEX;
-        }
-
         return Html::listBox($name, $value, $this->prepareItems($this->items), $options);
     }
 
     /**
      * Renders hidden input.
      *
-     * @param string    $name the name of input
-     * @param mixed     $value the value of input
-     * @param array     $options the HTMl options of input
+     * @param string $name the name of input
+     * @param mixed $value the value of input
+     * @param array $options the HTMl options of input
      * @return string
      */
     protected function renderHiddenInput($name, $value, $options)
@@ -421,16 +413,13 @@ abstract class BaseColumn extends BaseObject
     /**
      * Renders radio button.
      *
-     * @param string    $name the name of input
-     * @param mixed     $value the value of input
-     * @param array     $options the HTMl options of input
+     * @param string $name the name of input
+     * @param mixed $value the value of input
+     * @param array $options the HTMl options of input
      * @return string
      */
     protected function renderRadio($name, $value, $options)
     {
-        if (!isset($options['tabindex'])) {
-            $options['tabindex'] = self::TABINDEX;
-        }
 
         if (!isset($options['label'])) {
             $options['label'] = '';
@@ -448,16 +437,13 @@ abstract class BaseColumn extends BaseObject
     /**
      * Renders radio button list.
      *
-     * @param string    $name the name of input
-     * @param mixed     $value the value of input
-     * @param array     $options the HTMl options of input
+     * @param string $name the name of input
+     * @param mixed $value the value of input
+     * @param array $options the HTMl options of input
      * @return string
      */
     protected function renderRadioList($name, $value, $options)
     {
-        if (!isset($options['tabindex'])) {
-            $options['tabindex'] = self::TABINDEX;
-        }
 
         if (!array_key_exists('unselect', $options)) {
             $options['unselect'] = '';
@@ -465,10 +451,9 @@ abstract class BaseColumn extends BaseObject
 
         $options['item'] = function ($index, $label, $name, $checked, $value) use ($options) {
             $content = Html::radio($name, $checked, [
-                'label'     => $label,
-                'value'     => $value,
-                'data-id'   => ArrayHelper::getValue($options, 'id'),
-                'tabindex'  => self::TABINDEX
+                'label' => $label,
+                'value' => $value,
+                'data-id' => ArrayHelper::getValue($options, 'id'),
             ]);
 
             return Html::tag('div', $content, ['class' => 'radio']);
@@ -482,16 +467,13 @@ abstract class BaseColumn extends BaseObject
     /**
      * Renders checkbox.
      *
-     * @param string    $name the name of input
-     * @param mixed     $value the value of input
-     * @param array     $options the HTMl options of input
+     * @param string $name the name of input
+     * @param mixed $value the value of input
+     * @param array $options the HTMl options of input
      * @return string
      */
     protected function renderCheckbox($name, $value, $options)
     {
-        if (!isset($options['tabindex'])) {
-            $options['tabindex'] = self::TABINDEX;
-        }
 
         if (!isset($options['label'])) {
             $options['label'] = '';
@@ -509,16 +491,13 @@ abstract class BaseColumn extends BaseObject
     /**
      * Renders checkbox list.
      *
-     * @param string    $name the name of input
-     * @param mixed     $value the value of input
-     * @param array     $options the HTMl options of input
+     * @param string $name the name of input
+     * @param mixed $value the value of input
+     * @param array $options the HTMl options of input
      * @return string
      */
     protected function renderCheckboxList($name, $value, $options)
     {
-        if (!isset($options['tabindex'])) {
-            $options['tabindex'] = self::TABINDEX;
-        }
 
         if (!array_key_exists('unselect', $options)) {
             $options['unselect'] = '';
@@ -526,10 +505,9 @@ abstract class BaseColumn extends BaseObject
 
         $options['item'] = function ($index, $label, $name, $checked, $value) use ($options) {
             $content = Html::checkbox($name, $checked, [
-                'label'     => $label,
-                'value'     => $value,
-                'data-id'   => ArrayHelper::getValue($options, 'id'),
-                'tabindex'  => self::TABINDEX
+                'label' => $label,
+                'value' => $value,
+                'data-id' => ArrayHelper::getValue($options, 'id'),
             ]);
 
             return Html::tag('div', $content, ['class' => 'checkbox']);
@@ -550,9 +528,6 @@ abstract class BaseColumn extends BaseObject
      */
     protected function renderStatic($name, $value, $options)
     {
-        if (!isset($options['tabindex'])) {
-            $options['tabindex'] = self::TABINDEX;
-        }
 
         if ($this->renderer->isBootstrapTheme()) {
             Html::addCssClass($options, 'form-control-static');
@@ -599,9 +574,6 @@ abstract class BaseColumn extends BaseObject
         $type = $this->type;
 
         if (method_exists('yii\helpers\Html', $type)) {
-            if (!isset($options['tabindex'])) {
-                $options['tabindex'] = self::TABINDEX;
-            }
 
             if ($this->renderer->isBootstrapTheme()) {
                 Html::addCssClass($options, 'form-control');
@@ -628,32 +600,38 @@ abstract class BaseColumn extends BaseObject
      */
     protected function renderWidget($type, $name, $value, $options)
     {
-
-        $tabindex = isset($options['options']['tabindex']) ? $options['options']['tabindex'] : self::TABINDEX;
+        if (isset($options['options']['tabindex'])) {
+            $tabindex = $options['options']['tabindex'];
+        } elseif (isset($options['tabindex'])) {
+            $tabindex = $options['tabindex'];
+            unset($options['tabindex']);
+        } else {
+            $tabindex = null;
+        }
         unset($options['tabindex']);
-
+        $id = isset($options['id']) ? $options['id'] : $this->normalize($name);
         $model = $this->getModel();
         if ($model instanceof Model) {
             $widgetOptions = [
-                'model'     => $model,
+                'model' => $model,
                 'attribute' => $this->name,
-                'value'     => $value,
-                'options'   => [
-                    'id'        => $this->normalize($name),
-                    'name'      => $name,
-                    'tabindex'  => $tabindex,
-                    'value'     => $value
+                'value' => $value,
+                'options' => [
+                    'id' => $id,
+                    'name' => $name,
+                    'tabindex' => $tabindex,
+                    'value' => $value
                 ]
             ];
         } else {
             $widgetOptions = [
-                'name'      => $name,
-                'value'     => $value,
-                'options'   => [
-                    'id'        => $this->normalize($name),
-                    'name'      => $name,
-                    'tabindex'  => $tabindex,
-                    'value'     => $value
+                'name' => $name,
+                'value' => $value,
+                'options' => [
+                    'id' => $id,
+                    'name' => $name,
+                    'tabindex' => $tabindex,
+                    'value' => $value
                 ]
             ];
         }
