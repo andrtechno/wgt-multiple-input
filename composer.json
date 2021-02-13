@@ -12,6 +12,9 @@
             "homepage": "https://pixelion.com.ua"
         }
     ],
+    "require": {
+        "unclead/yii2-multiple-input": "~2.0"
+    },
     "autoload": {
         "psr-4": {
             "panix\\ext\\multipleinput\\": ""
