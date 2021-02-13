@@ -17,7 +17,7 @@ use panix\ext\multipleinput\components\BaseColumn;
 class TableLanguageRenderer extends TableRenderer
 {
 
-
+//public $columnClass = \panix\ext\multipleinput\MultipleInputColumn::class;
     /**
      * @inheritdoc
      */
@@ -28,11 +28,19 @@ class TableLanguageRenderer extends TableRenderer
         if ($this->data) {
 
             foreach ($this->data as $index => $item) {
-                $rows[] = $this->renderRowContent($index, $item);
+                if(is_array($item)){
+                    foreach ($item as $i => $it) {
+                        $rows[] = $this->renderRowContent($i, $it);
+                    }
+                }else{
+                    $rows[] = $this->renderRowContent($index, $item);
+                }
+              //  CMS::dump($item);
+
             }
             foreach ($languages as $index => $item) {
                 if (!isset($this->data[$index])) {
-                    $rows[] = $this->renderRowContent($index, $item);
+                   // $rows[] = $this->renderRowContent($index, $item);
                 }
             }
         } elseif ($this->min > 0) {
@@ -61,11 +69,9 @@ class TableLanguageRenderer extends TableRenderer
          */
         $options = ['id' => $id];
 
-        if (substr($id, -4) === 'drag') {
+        if ($column->type === BaseColumn::TYPE_DRAGCOLUMN) {
             $options = ArrayHelper::merge($options, ['class' => $this->iconMap['drag-handle']]);
         }
-
-        $options['style'] = 'background-image:url(/uploads/language/' . $index . '.png);';
 
         $input = $column->renderInput($name, $options, [
             'id' => $id,
@@ -109,7 +115,17 @@ class TableLanguageRenderer extends TableRenderer
 
         Html::addCssClass($columnOptions, 'list-cell__' . $column->name);
 
-        $input = Html::tag('div', $input, $wrapperOptions);
+
+        $html ='<div class="input-group">';
+        $html.='<div class="input-group-prepend">';
+        $html.='<span class="input-group-text"><img src="/uploads/language/' . $index . '.png" /></span>';
+        $html.='</div>';
+        $html.=$input;
+        $html.='</div>';
+
+
+
+        $input = Html::tag('div', $html, $wrapperOptions);
 
         return Html::tag('td', $input, $columnOptions);
     }

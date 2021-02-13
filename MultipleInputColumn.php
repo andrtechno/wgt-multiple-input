@@ -17,6 +17,7 @@ use panix\ext\multipleinput\components\BaseColumn;
  */
 class MultipleInputColumn extends BaseColumn
 {
+
     /**
      * @throws InvalidConfigException
      */
@@ -83,10 +84,10 @@ class MultipleInputColumn extends BaseColumn
             if (empty($this->renderer->columns) || ($this->isRendererHasOneColumn() && $this->hasModelAttribute($this->name))) {
                 return $model->formName();
             }
-            
+
             return Html::getInputName($this->context->model, $this->context->attribute);
         }
-        
+
         return $this->context->name;
     }
 
@@ -118,7 +119,7 @@ class MultipleInputColumn extends BaseColumn
         if ($index === null) {
             return null;
         }
-        
+
         if ($this->isRendererHasOneColumn()) {
             $attribute = $this->name . '[' . $index . ']';
         } else {
@@ -159,7 +160,7 @@ class MultipleInputColumn extends BaseColumn
             $options['attribute'] = $attribute;
 
             // Remember current name and mark the widget as embedded to prevent
-            // generation of wrong prefix in case when column is associated with AR relation
+            // generation of wrong prefix in case the column is associated with AR relation
             // @see https://github.com/unclead/yii2-multiple-input/issues/92
             $options['name'] = $name;
             $options['isEmbedded'] = true;
@@ -167,4 +168,5 @@ class MultipleInputColumn extends BaseColumn
 
         return parent::renderWidget($type, $name, $value, $options);
     }
+
 }
