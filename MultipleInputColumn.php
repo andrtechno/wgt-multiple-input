@@ -2,12 +2,13 @@
 
 namespace panix\ext\multipleinput;
 
+use unclead\multipleinput\components\BaseColumn;
 use yii\base\InvalidConfigException;
 use yii\base\Model;
 use yii\base\DynamicModel;
 use yii\db\ActiveRecordInterface;
 use yii\helpers\Html;
-use panix\ext\multipleinput\components\BaseColumn;
+
 
 /**
  * Class MultipleInputColumn

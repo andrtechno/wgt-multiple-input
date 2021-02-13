@@ -2,11 +2,13 @@
 
 namespace panix\ext\multipleinput\renderers;
 
+use unclead\multipleinput\renderers\BaseRenderer;
 use yii\base\InvalidConfigException;
 use yii\db\ActiveRecordInterface;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
 use panix\ext\multipleinput\components\BaseColumn;
+
 
 /**
  * Class TableRenderer

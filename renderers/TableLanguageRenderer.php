@@ -4,11 +4,9 @@ namespace panix\ext\multipleinput\renderers;
 
 use panix\engine\CMS;
 use Yii;
-use yii\base\InvalidConfigException;
-use yii\db\ActiveRecordInterface;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
-use panix\ext\multipleinput\components\BaseColumn;
+use \unclead\multipleinput\components\BaseColumn;
 
 /**
  * Class TableLanguageRenderer
