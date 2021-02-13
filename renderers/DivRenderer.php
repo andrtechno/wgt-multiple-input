@@ -7,40 +7,15 @@ use yii\base\InvalidConfigException;
 use yii\db\ActiveRecordInterface;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
-use panix\ext\multipleinput\components\BaseColumn;
+use unclead\multipleinput\renderers\DivRenderer as BaseDivRenderer;
 use yii\helpers\UnsetArrayValue;
 
 /**
  * Class DivRenderer is a list renderer who use divs
  */
-class DivRenderer extends BaseRenderer
+class DivRenderer extends BaseDivRenderer
 {
-    /**
-     * @return mixed
-     * @throws InvalidConfigException
-     */
-    protected function internalRender()
-    {
-        $content = [];
 
-        $content[] = $this->renderHeader();
-        $content[] = $this->renderBody();
-        $content[] = $this->renderFooter();
-
-        $options = [];
-        Html::addCssClass($options, 'multiple-input-list list-renderer');
-
-        if ($this->isBootstrapTheme()) {
-            Html::addCssClass($options, 'form-horizontal');
-        }
-
-        $content = Html::tag('div', implode("\n", $content), $options);
-
-        return Html::tag('div', $content, [
-            'id' => $this->id,
-            'class' => 'multiple-input'
-        ]);
-    }
 
     /**
      * Renders the header.
@@ -82,82 +57,6 @@ class DivRenderer extends BaseRenderer
         return Html::tag('div', $this->renderAddButton(), $options);
     }
 
-    /**
-     * Renders the body.
-     *
-     * @return string
-     * @throws \yii\base\InvalidConfigException
-     * @throws \yii\base\InvalidParamException
-     */
-    protected function renderBody()
-    {
-        $rows = [];
-
-        if ($this->data) {
-            $j = 0;
-            foreach ($this->data as $index => $item) {
-                if ($j++ <= $this->max) {
-                    $rows[] = $this->renderRowContent($index, $item);
-                } else {
-                    break;
-                }
-            }
-            for ($i = $j; $i < $this->min; $i++) {
-                $rows[] = $this->renderRowContent($i);
-            }
-        } elseif ($this->min > 0) {
-            for ($i = 0; $i < $this->min; $i++) {
-                $rows[] = $this->renderRowContent($i);
-            }
-        }
-
-        return implode("\n", $rows);
-    }
-
-    /**
-     * Renders the row content.
-     *
-     * @param int $index
-     * @param ActiveRecordInterface|array $item
-     * @return mixed
-     */
-    private function renderRowContent($index = null, $item = null)
-    {
-        $elements = [];
-        $columnIndex = 0;
-        foreach ($this->columns as $column) {
-            /* @var $column BaseColumn */
-            $column->setModel($item);
-            $elements[] = $this->renderCellContent($column, $index, $columnIndex++);
-        }
-
-        $content = Html::tag('div', implode("\n", $elements), $this->prepareRowOptions($index, $item));
-        if ($index !== null) {
-            $content = str_replace('{' . $this->getIndexPlaceholder() . '}', $index, $content);
-        }
-
-        return $content;
-    }
-
-    /**
-     * Prepares the row options.
-     *
-     * @param int $index
-     * @param ActiveRecordInterface|array $item
-     * @return array
-     */
-    protected function prepareRowOptions($index, $item)
-    {
-        if (is_callable($this->rowOptions)) {
-            $options = call_user_func($this->rowOptions, $item, $index, $this->context);
-        } else {
-            $options = $this->rowOptions;
-        }
-
-        Html::addCssClass($options, 'multiple-input-list__item');
-
-        return $options;
-    }
 
     /**
      * Renders the cell content.
