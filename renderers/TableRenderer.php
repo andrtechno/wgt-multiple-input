@@ -194,7 +194,7 @@ class TableRenderer extends BaseRenderer
      * @return mixed
      * @throws InvalidConfigException
      */
-    protected function renderRowContent($index = null, $item = null)
+    protected function renderRowContent($index = null, $item = null, $rowIndex = null)
     {
         $cells = [];
         $hiddenInputs = [];
